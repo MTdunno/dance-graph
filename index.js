@@ -4,4 +4,4 @@ const port = 3000;
 
 app.get('/', (req,res) => res.send('Hello World!'))
 
-app.listen(process.env.PORT || port, () => console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env) )
+app.listen(process.env.PORT || port, () => console.log("Express server listening on port %d in %s mode", process.env.PORT, app.settings.env) )
