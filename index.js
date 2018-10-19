@@ -6,7 +6,7 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.get('/hello', (req,res) => {
 	return res.send('Hello World!');
-}
+})
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
