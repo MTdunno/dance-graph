@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/MTdunno/dance-graph/issues"
   },
-  "homepage": "https://github.com/MTdunno/dance-graph#readme"
+  "homepage": "https://github.com/MTdunno/dance-graph#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
