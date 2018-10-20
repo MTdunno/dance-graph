@@ -3,14 +3,18 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 
+const danceevent = require('./routes/danceevent.route) 
+
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.get('/api/*', (req,res) => {
-	res.send('Hello World!');
+	res.send("This is the generic API page");
 })
 
-app.get('/api/event/:eventid', (req,res) => {
-	res.send("event with id: "+req.params.eventid);
+app.get('/api/event, danceevent);
+
+app.get('/api/profile/:profileid', (req,res) => {
+	res.send("profile with id: "+req.params.profileid);
 })
 
 app.get('*', (req, res) => {
