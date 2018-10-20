@@ -11,7 +11,7 @@ class EventList extends Component {
 			console.log(results.json());
 			results.json();
 		}
-		,(err) => {console.log(err);}).then(
+		,(err) => {console.log(err);console.log("TEST3");}).then(
 			data => {
 				console.log(data);
 				let danceevents = data.results.map((danceevent) => {
