@@ -20,6 +20,6 @@ exports.danceevent_create = function (req, res) {
 exports.danceevent_list = function (req, res) {
     res.send(DanceEvent.find().lean().exec(function (err, danceevents) {
 		return res.end(JSON.stringify(danceevents));
-	});
+	}));
 };
 
