@@ -30,9 +30,12 @@ exports.danceevent_create_test_data = function (req, res) {
 	);
 	danceevents.push(danceevent3);
 	
-	DanceEvent.insert(danceevents);
+	DanceEvent.insert(danceevents, function(err){
+		if(err) return next(err);
+		res.send("Test Data Loaded");
+	});
 	
-	res.send("Test Data Loaded")
+	
 };
 
 //Simple version, without validation or sanitation
