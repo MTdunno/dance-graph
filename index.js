@@ -30,6 +30,9 @@ app.get('/api/*', (req,res) => {
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
+app.get('/client/css/materialize.min.css', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/materialize.min.css'));
+});
 
 app.listen( port, () => {
 	console.log("Express server listening on port %d in %s mode", process.env.PORT, app.settings.env) 
