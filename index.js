@@ -5,7 +5,7 @@ const port = process.env.PORT || 3000;
 
 const danceevent = require('./routes/danceevent.route'); 
 
-const mongo = process.env.MONGODB_URI;
+const mongo = process.env.DATABASE_URL;
 const mongoose = require('mongoose');
 
 mongoose.connect(mongo);
