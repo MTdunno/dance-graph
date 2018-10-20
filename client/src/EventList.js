@@ -12,9 +12,6 @@ class EventList extends Component {
 		console.log("start mount");
 		fetch('https://quiet-reaches-88393.herokuapp.com/api/event/list').then(
 		(results) => {
-			console.log("TEST");
-			console.log(results);
-			console.log(results.json());
 			results.json();
 		}
 		,(err) => {console.log(err);console.log("TEST3");}).then(
