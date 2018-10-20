@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let DanceEventSchema = new Schema({
-    name: {type: String, required: true, max: 100},
-    price: {type: Number, required: true},
+    name: 			{type: String, required: true, max: 100},
+    description:	{type: String, required: true},
 });
 
 

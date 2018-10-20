@@ -5,6 +5,16 @@ const port = process.env.PORT || 3000;
 
 const danceevent = require('./routes/danceevent.route'); 
 
+const mongo = process.env.MONGODB_URI;
+const mongoose = require('mongoose');
+
+mongoose.connect(mongo);
+mongoose.Promise = global.Promise;
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+
+
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use('/api/event', danceevent);
