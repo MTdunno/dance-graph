@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 app.get('/client/css/materialize.min.css', (req, res) => {
-  res.sendFile(path.join(__dirname+'/client/materialize.min.css'));
+  res.sendFile(path.join(__dirname+'/client/css/materialize.min.css'));
 });
 
 app.listen( port, () => {
