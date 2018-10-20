@@ -27,7 +27,7 @@ class EventList extends Component {
 	
 	render() {
     return (<div id="container1">
-		"TEST THINGS"
+	{this.state.danceevents}
 	</div>);
 	}
 }
