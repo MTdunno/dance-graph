@@ -5,7 +5,7 @@ class EventCard extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {danceevents: "DANCE EVENTS"};
+		this.state = this.props.danceevent;
 	}
 	
 	render() {

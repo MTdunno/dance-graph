@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import EventCard from './EventCard';
 
 class EventList extends Component {
 	
@@ -16,7 +17,7 @@ class EventList extends Component {
 			data => {
 				console.log(data);
 				let danceevents = data.map(danceevent => {
-					return (<div key={danceevent._id}>{danceevent.name}</div>)
+					return (<EventCard danceevent={danceevent} />)
 				});
 				this.setState({danceevents: danceevents});
 				console.log({danceevents: danceevents});
@@ -26,7 +27,7 @@ class EventList extends Component {
 	}
 	
 	render() {
-    return (<div id="container1">
+    return (<div class="container">
 	{this.state.danceevents}
 	</div>);
 	}
