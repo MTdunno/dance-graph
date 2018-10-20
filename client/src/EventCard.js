@@ -16,3 +16,5 @@ class EventCard extends Component {
 	</div>);
 	}
 }
+
+export default EventCard;
