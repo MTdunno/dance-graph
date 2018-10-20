@@ -15,7 +15,7 @@ class EventList extends Component {
 		,(err) => {console.log(err);console.log("TEST3");}).then(
 			data => {
 				console.log(data);
-				let danceevents = data.results.map(danceevent => {
+				let danceevents = data.map(danceevent => {
 					return (<div key={danceevent._id}>{danceevent.name}</div>)
 				});
 				this.setState({danceevents: danceevents});
