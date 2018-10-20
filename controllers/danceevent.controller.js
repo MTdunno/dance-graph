@@ -12,7 +12,9 @@ exports.danceevent_create_test_data = function (req, res) {
 			description: "Tulsa and one or two people from out of town."
 		}
 	);
-	danceevents.push(danceevent1);
+	danceevent1.save(function(err){
+		if(err) return next(err);
+	});
 	
 	let danceevent2 = new DanceEvent(
 		{
@@ -20,7 +22,9 @@ exports.danceevent_create_test_data = function (req, res) {
 			description: "Dancing in the street! (and maybe shagging)"
 		}
 	);
-	danceevents.push(danceevent2);
+	danceevent2.save(function(err){
+		if(err) return next(err);
+	});
 	
 	let danceevent3 = new DanceEvent(
 		{
@@ -28,12 +32,12 @@ exports.danceevent_create_test_data = function (req, res) {
 			description: "College Party meets dance week all Carolina-like"
 		}
 	);
-	danceevents.push(danceevent3);
-	
-	DanceEvent.save(danceevents, function(err){
+	danceevent3.save(function(err){
 		if(err) return next(err);
-		res.send("Test Data Loaded");
 	});
+	
+	
+	res.send("Test Data Loaded");
 	
 	
 };
