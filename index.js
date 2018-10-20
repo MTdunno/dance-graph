@@ -8,7 +8,7 @@ const danceevent = require('./routes/danceevent.route');
 const mongo = process.env.MONGODB_URI;
 const mongoose = require('mongoose');
 
-mongoose.connect(mongo);
+mongoose.connect(mongo, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
