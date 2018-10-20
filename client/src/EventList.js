@@ -25,7 +25,7 @@ class EventList extends Component {
 	
 	render() {
     return (<div id="container1">
-	{this.state.danceevents}
+	{this.state===undefined?"oops":this.state.danceevents}
 	</div>);
 	}
 }
