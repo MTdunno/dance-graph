@@ -3,14 +3,21 @@ import React, { Component } from 'react';
 class EventList extends Component {
 	
 	componentDidMount(){
-		fetch('https://quiet-reaches-88393.herokuapp.com/api/event/list').then( (results) => results.json(),(err) => {console.log(err);}).then( data => {
-			console.log(data);
-			let danceevents = data.results.map((danceevent) => {
-				return (<div key={danceevent._id}>{danceevent.name}</div>)
-			});
-			this.setState({danceevents: danceevents});
-			console.log({danceevents: danceevents});
-		})
+		fetch('https://quiet-reaches-88393.herokuapp.com/api/event/list').then(
+		(results) => {
+			console.log(results.json());
+			results.json();
+		}
+		,(err) => {console.log(err);}).then(
+			data => {
+				console.log(data);
+				let danceevents = data.results.map((danceevent) => {
+					return (<div key={danceevent._id}>{danceevent.name}</div>)
+				});
+				this.setState({danceevents: danceevents});
+				console.log({danceevents: danceevents});
+			}
+		)
 	}
 	
 	render() {
