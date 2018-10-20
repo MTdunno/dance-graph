@@ -6,6 +6,6 @@ const dance_event_controller = require('../controllers/danceevent.controller');
 
 
 // a simple test url to check that all of our files are communicating correctly.
-router.get('/create', dance_event_controller.danceevent_create);
+router.get('/create', dance_event_controller.danceevent_create_test_data);
 router.get('/list', dance_event_controller.danceevent_list);
 module.exports = router;
