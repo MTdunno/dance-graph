@@ -13,9 +13,9 @@ app.get('/api/profile/:profileid', (req,res) => {
 	res.send("profile with id: "+req.params.profileid);
 })
 
-app.get('/api/*', (req,res) => {
-	res.send("This is the generic API page");
-})
+//app.get('/api/*', (req,res) => {
+//	res.send("This is the generic API page");
+//})
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
