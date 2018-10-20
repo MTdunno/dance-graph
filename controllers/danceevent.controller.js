@@ -2,7 +2,9 @@ const DanceEvent = require('../models/danceevent.model');
 
 //Simple version, without validation or sanitation
 exports.danceevent_create_test_data = function (req, res) {
-	DanceEvent.deleteMany({});
+	DanceEvent.remove({},function(err){
+		if(err) return next(err);
+	});
 	
 	let danceevents = []
 	
