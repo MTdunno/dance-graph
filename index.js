@@ -11,7 +11,7 @@ app.get('/api/*', (req,res) => {
 	res.send("This is the generic API page");
 })
 
-app.get('/api/event, danceevent);
+app.get('/api/event, danceevent');
 
 app.get('/api/profile/:profileid', (req,res) => {
 	res.send("profile with id: "+req.params.profileid);
