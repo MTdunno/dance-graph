@@ -7,14 +7,14 @@ const danceevent = require('./routes/danceevent.route');
 
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.get('/api/*', (req,res) => {
-	res.send("This is the generic API page");
-})
-
 app.get('/api/event', danceevent);
 
 app.get('/api/profile/:profileid', (req,res) => {
 	res.send("profile with id: "+req.params.profileid);
+})
+
+app.get('/api/*', (req,res) => {
+	res.send("This is the generic API page");
 })
 
 app.get('*', (req, res) => {
