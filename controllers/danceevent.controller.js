@@ -30,7 +30,7 @@ exports.danceevent_create_test_data = function (req, res) {
 	);
 	danceevents.push(danceevent3);
 	
-	DanceEvent.insert(danceevents, function(err){
+	DanceEvent.save(danceevents, function(err){
 		if(err) return next(err);
 		res.send("Test Data Loaded");
 	});
