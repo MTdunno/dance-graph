@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 class EventList extends Component {
 	
 	componentDidMount(){
+		console.log("start mount");
 		fetch('https://quiet-reaches-88393.herokuapp.com/api/event/list').then(
 		(results) => {
 			console.log("TEST");
