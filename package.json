@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "install": "cd client && npm clear cache && npm install && npm run build"
+    "install": "cd client && npm cache clear && npm install && npm run build"
   },
   "engines": {
     "node": "8.12.0"
