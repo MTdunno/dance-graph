@@ -13,7 +13,7 @@ class EventList extends Component {
 	}
 	
 	render() {
-    return (<div id=container1>
+    return (<div id="container1">
 	{this.state.danceevents}
 	</div>);
 	}
