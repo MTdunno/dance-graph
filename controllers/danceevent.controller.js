@@ -1,4 +1,4 @@
-const Event = require('../models/event.model');
+const Event = require('../models/danceevent.model');
 
 //Simple version, without validation or sanitation
 exports.test = function (req, res) {
