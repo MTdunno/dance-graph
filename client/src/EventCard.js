@@ -11,8 +11,10 @@ class EventCard extends Component {
 	render() {
     return (
 	<div class="card blue-grey darken-1">
-	<span class="card-title">{this.state.name}</span>
-	<p>{this.state.description}</p>
+		<div class="card-content white-text">
+			<span class="card-title">{this.state.name}</span>
+			<p>{this.state.description}</p>
+		</div>
 	</div>);
 	}
 }
