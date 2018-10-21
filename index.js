@@ -8,6 +8,9 @@ const danceevent = require('./routes/danceevent.route');
 const mongo = process.env.MONGODB_URI;
 const mongoose = require('mongoose');
 
+const bodyParser = require('body-parser');
+app.use(bodyParser);
+
 mongoose.connect(mongo, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
