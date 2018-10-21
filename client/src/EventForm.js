@@ -11,6 +11,8 @@ class EventForm extends Component {
 	}
 	
 	handleSubmit(item){
+		console.log("sumbit called");
+		console.log(item);
 		fetch('https://quiet-reaches-88393.herokuapp.com/api/event/create',{
 			method: 'POST',
 			body: JSON.stringify(this.state),
