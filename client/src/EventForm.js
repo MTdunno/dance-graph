@@ -11,6 +11,7 @@ class EventForm extends Component {
 	}
 	
 	handleSubmit(item){
+		//item.preventDefault();
 		console.log("sumbit called");
 		console.log(item);
 		fetch('https://quiet-reaches-88393.herokuapp.com/api/event/create',{
@@ -34,7 +35,7 @@ class EventForm extends Component {
 	
 	render() {
     return (
-		<form onSubmit={this.state.handleSubmit}>
+		<form onSubmit={this.handleSubmit}>
 			<div class="card blue-grey darken-1">
 				<div class="card-content white-text">
 					<span class="card-title"><input name="name" value={this.state.name} /></span>
