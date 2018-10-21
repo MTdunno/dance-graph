@@ -39,8 +39,8 @@ class EventForm extends Component {
 		<form onSubmit={this.handleSubmit.bind(this)}>
 			<div class="card blue-grey darken-1">
 				<div class="card-content white-text">
-					<span class="card-title"><input name="name" value={this.state.name} onChange={this.handleStateChange.bind(this)/></span>
-					<p><input name="description" value={this.state.description} {this.handleStateChange.bind(this)/></p>
+					<span class="card-title"><input name="name" value={this.state.name} onChange={this.handleStateChange.bind(this)} /></span>
+					<p><input name="description" value={this.state.description} onChange={this.handleStateChange.bind(this)} /></p>
 				</div>
 				<div class="card-action">
 					<input type="submit" value="Submit"/>
