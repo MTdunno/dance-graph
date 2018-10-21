@@ -9,7 +9,7 @@ const mongo = process.env.MONGODB_URI;
 const mongoose = require('mongoose');
 
 const bodyParser = require('body-parser');
-app.use(bodyParser);
+app.use(bodyParserajson());
 
 mongoose.connect(mongo, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
