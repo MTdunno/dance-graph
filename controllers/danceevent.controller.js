@@ -50,7 +50,8 @@ exports.danceevent_create_test_data = function (req, res) {
 
 //Simple version, without validation or sanitation
 exports.danceevent_create = function (req, res) {
-	console.log(req.body);
+	console.log("Entered Create");
+	console.log(req);
     let danceevent = new DanceEvent(req.body);
 	danceevent.save(function(err){
 		console.log(err);
