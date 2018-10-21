@@ -20,7 +20,6 @@ class EventForm extends Component {
 			return response.json()
 		}).then(function(body){
 			console.log(body);
-			alert(self.refs.task.value)
 		});
 	}
 	
