@@ -3,7 +3,8 @@ const DanceEvent = require('../models/danceevent.model');
 //Simple version, without validation or sanitation
 exports.danceevent_create_test_data = function (req, res) {
 	DanceEvent.remove({},function(err){
-		if(err) return next(err);
+		console.log(err);
+		if(err) return err;
 	});
 	
 	let danceevents = []
@@ -15,7 +16,8 @@ exports.danceevent_create_test_data = function (req, res) {
 		}
 	);
 	danceevent1.save(function(err){
-		if(err) return next(err);
+		console.log(err);
+		if(err) return err;
 	});
 	
 	let danceevent2 = new DanceEvent(
@@ -25,7 +27,8 @@ exports.danceevent_create_test_data = function (req, res) {
 		}
 	);
 	danceevent2.save(function(err){
-		if(err) return next(err);
+		console.log(err);
+		if(err) return err;
 	});
 	
 	let danceevent3 = new DanceEvent(
@@ -35,7 +38,8 @@ exports.danceevent_create_test_data = function (req, res) {
 		}
 	);
 	danceevent3.save(function(err){
-		if(err) return next(err);
+		console.log(err);
+		if(err) return err;
 	});
 	
 	
@@ -48,7 +52,8 @@ exports.danceevent_create_test_data = function (req, res) {
 exports.danceevent_create = function (req, res) {
     let danceevent = new DanceEvent(req.body);
 	danceevent.save(function(err){
-		if(err) return next(err);
+		console.log(err);
+		if(err) return err;
 	});
 	res.send({"success":true});
 	
