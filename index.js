@@ -19,6 +19,26 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 //---------PASSPORT
 
+const session = require('express-session');
+const MemcachedStore = require('connect-memjs')(session);
+
+// In production use the Memcache instance to store session data,
+// otherwise fallback to the default MemoryStore in development.
+if (process.env.MEMCACHE_URL) {
+  if (process.env.MEMCACHE_USERNAME && process.env.MEMCACHE_PASSWORD) {
+    sessionConfig.store = new MemcachedStore({
+      servers: [process.env.MEMCACHE_URL],
+      username: process.env.MEMCACHE_USERNAME,
+      password: process.env.MEMCACHE_PASSWORD});
+  } else {
+    sessionConfig.store = new MemcachedStore({
+      servers: [process.env.MEMCACHE_URL]
+    });
+  }
+}
+
+app.use(session(sessionConfig));
+
 const passport = require('passport');
 app.use(passport.initialize());
 app.use(passport.session());
