@@ -109,6 +109,9 @@ function addTemplateVariables (req, res, next) {
   next();
 }
 
+app.use(passport.initialize());
+app.use(passport.session());
+
 //---------PASSPORT
 
 app.use(express.static(path.join(__dirname, 'client/build')));
