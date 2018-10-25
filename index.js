@@ -101,7 +101,7 @@ app.get('/api/*', (req,res) => {
 	res.send("This is the generic API page");
 })
 
-app.get('/', oauth2.required(req, res) => {
+app.get('/', oauth2.required, (req, res) => {
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 app.get('/client/css/materialize.min.css', (req, res) => {
