@@ -84,12 +84,6 @@ passport.deserializeUser((obj, cb) => {
   cb(null, obj);
 });
 
-//STUFF FOR CORS -- GROSS
-app.all('/*', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    next();
-});
-
 app.get(
   // Login url
   '/auth/login',
@@ -164,6 +158,7 @@ app.get('/api/*', (req,res) => {
 })
 
 app.get('/', authRequired, (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 app.get('/client/css/materialize.min.css', (req, res) => {
