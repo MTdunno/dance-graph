@@ -52,7 +52,7 @@ passport.deserializeUser((obj, cb) => {
   cb(null, obj);
 });
 
-router.get(
+app.get(
   // Login url
   '/auth/login',
 
