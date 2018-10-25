@@ -37,7 +37,7 @@ passport.use(new GoogleStrategy({
   clientID: process.env.OAUTH2_CLIENT_ID,
   clientSecret: process.env.OAUTH2_CLIENT_SECRET,
   callbackURL: 'https://quiet-reaches-88393.herokuapp.com/auth/google/callback',
-  scope: ['email']
+  scope: ['profile']
 }, (accessToken, refreshToken, profile, cb) => {
   // Extract the minimal profile information we need from the profile object
   // provided by Google
@@ -104,7 +104,7 @@ app.get('/api/*', (req,res) => {
 	res.send("This is the generic API page");
 })
 
-app.get('/', oauth2.required, (req, res) => {
+app.get('/', authRequired, (req, res) => {
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 app.get('/client/css/materialize.min.css', (req, res) => {
