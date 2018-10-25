@@ -4,6 +4,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const danceevent = require('./routes/danceevent.route'); 
+const auth_route = require('./routes/auth.route'); 
 
 const mongo = process.env.MONGODB_URI;
 const mongoose = require('mongoose');
@@ -118,10 +119,11 @@ function addTemplateVariables (req, res, next) {
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use('/api/event', danceevent);
+app.use('/profile', auth_route);
 
-app.get('/api/profile/:profileid', (req,res) => {
-	res.send("profile with id: "+req.params.profileid);
-})
+//app.get('/api/profile/:profileid', (req,res) => {
+//	res.send("profile with id: "+req.params.profileid);
+//})
 
 app.get('/api/*', (req,res) => {
 	res.send("This is the generic API page");
