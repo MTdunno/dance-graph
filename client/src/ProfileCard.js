@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import EventCard from './EventCard';
+
 
 class ProfileCard extends Component {
 	
@@ -20,7 +20,7 @@ class ProfileCard extends Component {
 				<div class="card blue-grey darken-1">
 					<div class="card-content white-text">
 						<span class="card-title">{data.name}</span>
-						<p><img src={data.photo}></p>
+						<p><img src={data.photo}/></p>
 					</div>
 				</div>);
 				this.setState({profile: profile});
