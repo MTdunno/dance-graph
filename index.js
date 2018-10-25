@@ -34,10 +34,9 @@ function extractProfile (profile) {
 }
 
 passport.use(new GoogleStrategy({
-  clientId: process.env.OAUTH2_CLIENT_ID,
+  clientID: process.env.OAUTH2_CLIENT_ID,
   clientSecret: process.env.OAUTH2_CLIENT_SECRET,
-  callbackURL: '/auth/google/callback',
-  accessType: 'offline'
+  callbackURL: 'https://quiet-reaches-88393.herokuapp.com/auth/google/callback'
 }, (accessToken, refreshToken, profile, cb) => {
   // Extract the minimal profile information we need from the profile object
   // provided by Google
@@ -57,7 +56,7 @@ router.get(
   '/auth/google/callback',
 
   // Finish OAuth 2 flow using Passport.js
-  passport.authenticate('google'),
+  passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }),
 
   // Redirect back to the original page, if any
   (req, res) => {
@@ -73,7 +72,7 @@ router.get(
 function authRequired (req, res, next) {
   if (!req.user) {
     req.session.oauth2return = req.originalUrl;
-    return res.redirect('/auth/login');
+    return res.redirect('https://quiet-reaches-88393.herokuapp.com/auth/login');
   }
   next();
 }
