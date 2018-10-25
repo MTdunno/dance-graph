@@ -34,7 +34,7 @@ function extractProfile (profile) {
 }
 
 passport.use(new GoogleStrategy({
-  clientID: process.env.OAUTH2_CLIENT_ID,
+  clientId: process.env.OAUTH2_CLIENT_ID,
   clientSecret: process.env.OAUTH2_CLIENT_SECRET,
   callbackURL: '/auth/google/callback',
   accessType: 'offline'
