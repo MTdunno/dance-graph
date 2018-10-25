@@ -114,6 +114,7 @@ app.get(
 
   // Redirect back to the original page, if any
   (req, res) => {
+	res.header("Access-Control-Allow-Origin", "*");
     const redirect = req.session.oauth2return || '/';
     delete req.session.oauth2return;
     res.redirect(redirect);
@@ -158,7 +159,6 @@ app.get('/api/*', (req,res) => {
 })
 
 app.get('/', authRequired, (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 app.get('/client/css/materialize.min.css', (req, res) => {
