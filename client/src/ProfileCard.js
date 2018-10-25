@@ -24,7 +24,6 @@ class ProfileCard extends Component {
 					</div>
 				</div>);
 				this.setState({profile: profile});
-				console.log({danceevents: danceevents});
 			}
 		)
 		
@@ -37,4 +36,4 @@ class ProfileCard extends Component {
 	}
 }
 
-export default EventList;
+export default ProfileCard;
