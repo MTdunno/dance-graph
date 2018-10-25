@@ -34,9 +34,9 @@ function extractProfile (profile) {
 }
 
 passport.use(new GoogleStrategy({
-  clientID: config.get('OAUTH2_CLIENT_ID'),
-  clientSecret: config.get('OAUTH2_CLIENT_SECRET'),
-  callbackURL: config.get('OAUTH2_CALLBACK'),
+  clientID: process.env.OAUTH2_CLIENT_ID,
+  clientSecret: process.env.OAUTH2_CLIENT_SECRET,
+  callbackURL: '/auth/google/callback',
   accessType: 'offline'
 }, (accessToken, refreshToken, profile, cb) => {
   // Extract the minimal profile information we need from the profile object
