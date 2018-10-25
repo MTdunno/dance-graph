@@ -84,6 +84,12 @@ passport.deserializeUser((obj, cb) => {
   cb(null, obj);
 });
 
+//STUFF FOR CORS -- GROSS
+app.all('/*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    next();
+});
+
 app.get(
   // Login url
   '/auth/login',
