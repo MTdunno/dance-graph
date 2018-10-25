@@ -34,9 +34,10 @@ function extractProfile (profile) {
 }
 
 passport.use(new GoogleStrategy({
-  clientId: process.env.OAUTH2_CLIENT_ID,
+  clientID: process.env.OAUTH2_CLIENT_ID,
   clientSecret: process.env.OAUTH2_CLIENT_SECRET,
-  callbackURL: 'https://quiet-reaches-88393.herokuapp.com/auth/google/callback'
+  callbackURL: 'https://quiet-reaches-88393.herokuapp.com/auth/google/callback',
+  scope: ['email']
 }, (accessToken, refreshToken, profile, cb) => {
   // Extract the minimal profile information we need from the profile object
   // provided by Google
@@ -56,7 +57,10 @@ router.get(
   '/auth/google/callback',
 
   // Finish OAuth 2 flow using Passport.js
-  passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }),
+  passport.authenticate('google', {
+							accessType: 'offline',
+							prompt: 'consent'
+						}),
 
   // Redirect back to the original page, if any
   (req, res) => {
