@@ -19,6 +19,9 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 //---------PASSPORT
 
 const passport = require('passport');
+app.use(passport.initialize());
+app.use(passport.session());
+
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 function extractProfile (profile) {
@@ -109,8 +112,6 @@ function addTemplateVariables (req, res, next) {
   next();
 }
 
-app.use(passport.initialize());
-app.use(passport.session());
 
 //---------PASSPORT
 
