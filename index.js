@@ -51,7 +51,7 @@ passport.deserializeUser((obj, cb) => {
   cb(null, obj);
 });
 
-router.get(
+app.get(
   // OAuth 2 callback url. Use this url to configure your OAuth client in the
   // Google Developers console
   '/auth/google/callback',
