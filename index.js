@@ -52,6 +52,23 @@ passport.deserializeUser((obj, cb) => {
   cb(null, obj);
 });
 
+router.get(
+  // Login url
+  '/auth/login',
+
+  // Save the url of the user's current page so the app can redirect back to
+  // it after authorization
+  (req, res, next) => {
+    if (req.query.return) {
+      req.session.oauth2return = req.query.return;
+    }
+    next();
+  },
+
+  // Start OAuth 2 flow using Passport.js
+  passport.authenticate('google', { scope: ['email', 'profile'] })
+);
+
 app.get(
   // OAuth 2 callback url. Use this url to configure your OAuth client in the
   // Google Developers console
