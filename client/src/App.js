@@ -10,10 +10,10 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-		  <ProfileCard />
-		  <EventForm />
-          <EventList />
+		  <ProfileCard />  
         </header>
+		<EventForm />
+        <EventList />
       </div>
     );
   }

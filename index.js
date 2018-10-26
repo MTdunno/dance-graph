@@ -54,8 +54,15 @@ app.use(passport.session());
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 function extractProfile (profile) {
-	
-  return profile; //narrow to desired properties
+  let imageUrl = '';
+  if (profile.photos && profile.photos.length) {
+    imageUrl = profile.photos[0].value;
+  }
+  return {
+    id: profile.id,
+    displayName: profile.displayName,
+    image: imageUrl
+  };
 }
 
 passport.use(new GoogleStrategy({
@@ -106,7 +113,7 @@ app.get(
 
   // Redirect back to the original page, if any
   (req, res) => {
-	const redirect = '/';
+	const redirect = req.session.oauth2return || '/';
     delete req.session.oauth2return;
     res.redirect(redirect);
   }
@@ -143,7 +150,7 @@ app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
     // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 
     // Set to true if you need the website to include cookies in the requests sent
     // to the API (e.g. in case you use sessions)
