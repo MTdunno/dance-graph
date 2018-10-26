@@ -4,7 +4,7 @@
 exports.google = (req, res) => {
   const user = { 
     name: req.user.displayName,
-    photo: req.user.image.value.replace(/sz=50/gi, 'sz=250')
+    photo: req.user.image
   }
   res.send(user);
 }
