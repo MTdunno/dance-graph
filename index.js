@@ -93,7 +93,10 @@ app.get(
   // Save the url of the user's current page so the app can redirect back to
   // it after authorization
   (req, res, next) => {
-	  console.log(req.query.return);
+	console.log(req.query.return);
+	res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
     if (req.query.return) {
       req.session.oauth2return = req.query.return;
     }else {req.session.oauth2return = 'https://quiet-reaches-88393.herokuapp.com'}
