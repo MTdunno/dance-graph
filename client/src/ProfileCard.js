@@ -16,13 +16,15 @@ class ProfileCard extends Component {
 		,(err) => {console.log(err);console.log("TEST3");}).then(
 			data => {
 				console.log(data);
-				const profile =(
-				<div class="card blue-grey darken-1">
-					<div class="card-content white-text">
-						<span class="card-title">{data.name}</span>
-						<p><img src={data.photo}/></p>
-					</div>
-				</div>);
+				if(data){
+					const profile =(
+					<div class="card blue-grey darken-1">
+						<div class="card-content white-text">
+							<span class="card-title">{data.name}</span>
+							<p><img src={data.photo}/></p>
+						</div>
+					</div>);
+				}
 				this.setState({profile: profile});
 			}
 		)
