@@ -106,7 +106,7 @@ app.get(
 
   // Redirect back to the original page, if any
   (req, res) => {
-	const redirect = req.session.oauth2return || '/';
+	const redirect = '/';
     delete req.session.oauth2return;
     res.redirect(redirect);
   }
