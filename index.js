@@ -96,7 +96,7 @@ app.get(
 	  console.log(req.query.return);
     if (req.query.return) {
       req.session.oauth2return = req.query.return;
-    }
+    }else {req.session.oauth2return = 'https://quiet-reaches-88393.herokuapp.com'}
     next();
   },
 
