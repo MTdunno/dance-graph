@@ -22,7 +22,7 @@ class ProfileCard extends Component {
 					<div class="card blue-grey darken-1">
 						<div class="card-content white-text">
 							<span class="card-title">{data.name}</span>
-							<p><img src={data.photo}/></p>
+							<p><img class="responsive-img circle" src={data.photo}/></p>
 						</div>
 					</div>);
 				}
