@@ -64,7 +64,7 @@ function extractProfile (profile) {
   return {
     id: profile.id,
     displayName: profile.displayName,
-    image: imageUrl
+    image: imageUrl === undefined '' : imageUrl.replace( /sz=50/g , 'sz=250' ) 
   };
 }
 
