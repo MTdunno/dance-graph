@@ -94,7 +94,7 @@ app.get(
   // it after authorization
   (req, res, next) => {
     if (req.query.return) {
-      req.session.oauth2return = req.query.originalUrl;
+      req.session.oauth2return = req.query.return;
     }
     next();
   },
