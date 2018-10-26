@@ -54,16 +54,8 @@ app.use(passport.session());
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 function extractProfile (profile) {
-	console.log(profile);
-  let imageUrl = '';
-  if (profile.photos && profile.photos.length) {
-    imageUrl = profile.photos[0].value;
-  }
-  return {
-    id: profile.id,
-    displayName: profile.displayName,
-    image: imageUrl
-  };
+	
+  return profile; //narrow to desired properties
 }
 
 passport.use(new GoogleStrategy({
@@ -127,7 +119,7 @@ function authRequired (req, res, next) {
   console.log(req.user);
   if (!req.user) {
     req.session.oauth2return = req.originalUrl;
-    return res.redirect('https://quiet-reaches-88393.herokuapp.com/auth/login');
+    return res.redirect('https://quiet-reaches-88393.herokuapp.com/auth/lo	gin');
   }
   next();
 }
