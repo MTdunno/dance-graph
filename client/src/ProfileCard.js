@@ -18,7 +18,7 @@ class ProfileCard extends Component {
 				console.log(data);
 				let profile = "PROOFILE";
 				if(data){
-					 =(
+					profile =(
 					<div class="card blue-grey darken-1">
 						<div class="card-content white-text">
 							<span class="card-title">{data.name}</span>
