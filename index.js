@@ -23,6 +23,9 @@ const session = require('express-session');
 const MemcachedStore = require('connect-memjs')(session);
 const passport = require('passport');
 
+var cors = require('cors')
+app.use(cors())
+
 const sessionConfig = {
   resave: false,
   saveUninitialized: false,
