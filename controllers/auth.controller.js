@@ -6,7 +6,7 @@ exports.google = (req, res) => {
     name: req.user.displayName,
     photo: req.user.image
   }
-  res.send(user);
+  res.json(user);
 }
 
 
