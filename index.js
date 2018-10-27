@@ -99,7 +99,7 @@ app.get(
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     if (req.query.return) {
       req.session.oauth2return = req.query.return;
-    }else {req.session.oauth2return = 'https://quiet-reaches-88393.herokuapp.com/auth/login'}
+    }else {req.session.oauth2return = 'https://quiet-reaches-88393.herokuapp.com'}
     next();
   },
 
@@ -120,7 +120,7 @@ app.get(
 
   // Redirect back to the original page, if any
   (req, res) => {
-	const redirect =  'https://quiet-reaches-88393.herokuapp.com/auth/login';
+	const redirect =  '/';
     delete req.session.oauth2return;
     res.redirect(redirect);
   }
