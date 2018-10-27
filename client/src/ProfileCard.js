@@ -27,7 +27,7 @@ class ProfileCard extends Component {
 					</div>);
 				}
 				this.setState({profile: profile});
-			}, err => {console.log(err); console.log(response.text());}
+			}, err => {console.log(err.response);}
 		)
 		
 	}
