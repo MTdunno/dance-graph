@@ -50,6 +50,10 @@ if (process.env.MEMCACHE_URL) {
 
 app.use(session(sessionConfig));
 
+app.all('/*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    next();
+});
 
 app.use(passport.initialize());
 app.use(passport.session());
