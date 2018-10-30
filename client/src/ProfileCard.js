@@ -28,7 +28,7 @@ class ProfileCard extends Component {
 				}
 				this.setState({profile: profile});
 			}
-		).catch(error => console.log(err.response));
+		).catch(error => console.log(error.response));
 		
 	}
 	
