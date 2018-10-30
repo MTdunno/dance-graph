@@ -13,6 +13,8 @@ class ProfileCard extends Component {
 		console.log("start mount");
 		fetch('https://quiet-reaches-88393.herokuapp.com/profile/google', {mode: 'no-cors'}).then(
 		response => {
+			console.log(response);
+			console.log(response.body);
 			var stream = response.body
 			var string = ''
 			stream.on('readable',function(buffer){
