@@ -17,8 +17,7 @@ class ProfileCard extends Component {
 			'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
 			'Access-Control-Allow-Headers': 'Content-Type',
 			'Content-Type': 'application/json',
-			'credentials': 'include'
-		}}).then(
+		}, credentials: 'include'}).then(
 		response => {
 			console.log(response);
 			console.log(response.body);
