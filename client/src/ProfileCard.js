@@ -17,17 +17,17 @@ class ProfileCard extends Component {
 			console.log(response.body);
 			var stream = response.body
 			var string = ''
-			stream.on('readable',function(buffer){
-				var part = buffer.read().toString();
-				string += part;
-				console.log('stream data ' + part);
-			});
+			const chunks = [];
 
-
-			stream.on('end',function(){
-				console.log('final output ' + string);
+			readStream.on("data", function (chunk) {
+				chunks.push(chunk);
 			});
-			console.log(string); 
+            
+			 // Send the buffer or you can put it into a var
+			readStream.on("end", function () {
+				console.log(Buffer.concat(chunks));
+			});
+			 
 			return response.json();
 		}
 		,(err) => {console.log(err);console.log("TEST3");}).then(
