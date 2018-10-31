@@ -14,8 +14,8 @@ class ProfileCard extends Component {
 		
 		fetch('https://quiet-reaches-88393.herokuapp.com/profile/google', { headers:{
 			'Access-Control-Allow-Origin': '*',
-			'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
-			'Access-Control-Allow-Headers': 'Content-Type',
+			'Access-Control-Allow-Methods': '*',
+			'Access-Control-Allow-Headers': '*',
 			'Content-Type': 'application/json',
 		}, credentials: 'include'}).then(
 		response => {
