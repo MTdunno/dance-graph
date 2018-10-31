@@ -28,7 +28,7 @@ class ProfileCard extends Component {
 			stream.on("end", function () {
 				var x = Buffer.concat(chunks);
 				console.log(x);
-				return x;
+				response.json(x);
 			});
 		}
 		,(err) => {console.log(err);console.log("TEST3");}).then(
