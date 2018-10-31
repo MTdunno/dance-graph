@@ -20,6 +20,7 @@ class ProfileCard extends Component {
 			const chunks = [];
 
 			stream.on("data", function (chunk) {
+				console.log(chunk);
 				chunks.push(chunk);
 			});
             
