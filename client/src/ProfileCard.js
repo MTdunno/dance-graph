@@ -18,6 +18,7 @@ class ProfileCard extends Component {
 			var stream = response.body
 			var string = ''
 			const chunks = [];
+			var data ='FLAG';
 
 			stream.on("data", function (chunk) {
 				console.log(chunk);
@@ -28,8 +29,9 @@ class ProfileCard extends Component {
 			stream.on("end", function () {
 				var x = Buffer.concat(chunks);
 				console.log(x);
-				response.json(x);
+				data = x;
 			});
+			return data;
 		}
 		,(err) => {console.log(err);console.log("TEST3");}).then(
 			data => {
