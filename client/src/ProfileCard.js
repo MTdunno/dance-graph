@@ -33,7 +33,7 @@ class ProfileCard extends Component {
 		}
 		,(err) => {console.log(err);console.log("TEST3");}).then(
 			data => {
-				console.log(data);
+				var stream = data;
 				const chunks = [];
 
 				stream.on("data", function (chunk) {
