@@ -19,12 +19,12 @@ class ProfileCard extends Component {
 			var string = ''
 			const chunks = [];
 
-			readStream.on("data", function (chunk) {
+			stream.on("data", function (chunk) {
 				chunks.push(chunk);
 			});
             
 			 // Send the buffer or you can put it into a var
-			readStream.on("end", function () {
+			stream.on("end", function () {
 				console.log(Buffer.concat(chunks));
 			});
 			 
