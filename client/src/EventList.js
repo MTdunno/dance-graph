@@ -15,7 +15,6 @@ class EventList extends Component {
 		response => response.json()
 		,(err) => {console.log(err);console.log("TEST3");}).then(
 			data => {
-				console.log(data);
 				let danceevents = data.map(danceevent => {
 					return (<EventCard danceevent={danceevent} />)
 				});
