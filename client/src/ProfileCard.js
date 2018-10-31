@@ -11,7 +11,12 @@ class ProfileCard extends Component {
 	
 	componentDidMount(){
 		console.log("start mount");
-		fetch('https://quiet-reaches-88393.herokuapp.com/profile/google', {credentials: 'include'}).then(
+		
+		fetch('https://quiet-reaches-88393.herokuapp.com/profile/google', {
+			'Access-Control-Allow-Origin': '*',
+			'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
+			'Access-Control-Allow-Headers': 'Content-Type'
+			}).then(
 		response => {
 			console.log(response);
 			console.log(response.body);
