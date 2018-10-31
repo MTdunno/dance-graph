@@ -18,8 +18,23 @@ class ProfileCard extends Component {
 			var stream = response.body
 			var string = ''
 			const chunks = [];
-			
-			if(stream){
+
+			stream.on("data", function (chunk) {
+				console.log(chunk);
+				chunks.push(chunk);
+			});
+            
+			 // Send the buffer or you can put it into a var
+			stream.on("end", function () {
+				var x = Buffer.concat(chunks);
+				console.log(x);
+				response.send(x);
+			});
+		}
+		,(err) => {console.log(err);console.log("TEST3");}).then(
+			data => {
+				console.log(data);
+				const chunks = [];
 
 				stream.on("data", function (chunk) {
 					console.log(chunk);
@@ -30,16 +45,10 @@ class ProfileCard extends Component {
 				stream.on("end", function () {
 					var x = Buffer.concat(chunks);
 					console.log(x);
-					response.send(x);
+					data = x;
 				});
 				
-			}else{
-				throw new Error();
-			}
-		}
-		,(err) => {console.log(err);console.log("TEST3");}).then(
-			data => {
-				console.log(data);
+				
 				let profile = "PROOFILE";
 				if(data){
 					profile =(
