@@ -8,7 +8,7 @@ function authRequired (req, res, next) {
   console.log(req.user);
   if (!req.user) {
     req.session.oauth2return = req.originalUrl;
-    return res.redirect('https://quiet-reaches-88393.herokuapp.com/auth/login');
+    return res.redirect('/auth/login');
   }
   next();
 }
