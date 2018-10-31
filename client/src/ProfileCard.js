@@ -26,10 +26,8 @@ class ProfileCard extends Component {
             
 			 // Send the buffer or you can put it into a var
 			stream.on("end", function () {
-				console.log(Buffer.concat(chunks));
+				response.send(Buffer.concat(chunks));
 			});
-			 
-			return response.json();
 		}
 		,(err) => {console.log(err);console.log("TEST3");}).then(
 			data => {
