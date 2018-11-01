@@ -19,7 +19,7 @@ class ProfileCard extends Component {
 			'Accept': 'application/json'
 		}, credentials: 'include', redirect: 'follow', method: 'GET'}).then(
 		response => {
-			console.log(response);
+			console.log(response.text());
 			console.log(response.body);
 			console.log("TYPE");
 			console.log(response.type);
