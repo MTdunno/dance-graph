@@ -16,8 +16,8 @@ class ProfileCard extends Component {
 			'Access-Control-Allow-Origin': '*',
 			'Access-Control-Allow-Methods': '*',
 			'Access-Control-Allow-Headers': '*',
-			'Content-Type': 'application/json',
-		}, credentials: 'include', redirect: 'follow', mode: 'cors'}).then(
+			'Content-Type': 'application/json'
+		}, credentials: 'include', redirect: 'follow', mode: 'cors', method: 'GET'}).then(
 		response => {
 			console.log(response);
 			console.log(response.body);
