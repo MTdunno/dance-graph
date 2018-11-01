@@ -16,7 +16,7 @@ class ProfileCard extends Component {
 			'Access-Control-Allow-Origin': '*',
 			'Access-Control-Allow-Methods': '*',
 			'Access-Control-Allow-Headers': '*',
-			'Content-Type': 'application/json'
+			'Accept': 'application/json'
 		}, credentials: 'include', redirect: 'follow', mode: 'cors', method: 'GET'}).then(
 		response => {
 			console.log(response);
@@ -40,6 +40,8 @@ class ProfileCard extends Component {
 				response.write(typeof data);
 				response.end();
 			});
+			
+			
 		}
 		,(err) => {console.log(err);console.log("TEST3");}).then(
 			data => {
