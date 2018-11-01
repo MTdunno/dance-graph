@@ -21,6 +21,8 @@ class ProfileCard extends Component {
 		response => {
 			console.log(response);
 			console.log(response.body);
+			console.log("TYPE");
+			console.log(response.type);
 			const stream = response.body
 			var string = ''
 			const chunks = [];
