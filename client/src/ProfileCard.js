@@ -19,29 +19,29 @@ class ProfileCard extends Component {
 			'Accept': 'application/json, text/html'
 		}, credentials: 'include', redirect: 'follow', method: 'GET'}).then(
 		response => {
-			console.log(response.text());
-			console.log(response.body);
-			console.log(response.json());
-			console.log("TYPE");
-			console.log(response.type);
-			const stream = response.body
-			var string = ''
-			const chunks = [];
-			
-			stream.on("data", function (chunk) {
-				console.log(chunk);
-				chunks.push(chunk);
-			});
-            
-			 // Send the buffer or you can put it into a var
-			stream.on("end", function () {
-				var x = Buffer.concat(chunks);
-				console.log(x);
-				const data = JSON.parse(x);
-				response.write(typeof data);
-				response.end();
-			});
-			
+		//	console.log(response.text());
+		//	console.log(response.body);
+		//	console.log(response.json());
+		//	console.log("TYPE");
+		//	console.log(response.type);
+		//	const stream = response.body
+		//	var string = ''
+		//	const chunks = [];
+		//	
+		//	stream.on("data", function (chunk) {
+		//		console.log(chunk);
+		//		chunks.push(chunk);
+		//	});
+        //    
+		//	 // Send the buffer or you can put it into a var
+		//	stream.on("end", function () {
+		//		var x = Buffer.concat(chunks);
+		//		console.log(x);
+		//		const data = JSON.parse(x);
+		//		response.write(typeof data);
+		//		response.end();
+		//	});
+			return response.json();
 			
 		}
 		,(err) => {console.log(err);console.log("TEST3");}).then(
