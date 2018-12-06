@@ -122,7 +122,7 @@ app.get(
   (req, res) => {
 	  console.log("HIT CALLBACK");
 	  console.log(req.session);
-	const redirect = req.session.oauth2return || '/';
+	const redirect = req.session.oauth2return || '/app';
     delete req.session.oauth2return;
     res.redirect(redirect);
   }
