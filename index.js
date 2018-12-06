@@ -71,7 +71,7 @@ function extractProfile (profile) {
 passport.use(new GoogleStrategy({
   clientID: process.env.OAUTH2_CLIENT_ID,
   clientSecret: process.env.OAUTH2_CLIENT_SECRET,
-  callbackURL: 'https://quiet-reaches-88393.herokuapp.com/',
+  callbackURL: 'https://quiet-reaches-88393.herokuapp.com/auth/google/callback',
   scope: ['profile', 'email']
 }, (accessToken, refreshToken, profile, cb) => {
   // Extract the minimal profile information we need from the profile object
@@ -165,9 +165,6 @@ app.get('/api/*', (req,res) => {
 })
 
 app.get('/', authRequired, (req, res) => {
-	res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 app.get('/client/css/materialize.min.css', (req, res) => {
