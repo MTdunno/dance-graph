@@ -11,7 +11,7 @@ function authRequired (req, res, next) {
 	  console.log(req.originalUrl);
 	  console.log(req);
     req.session.oauth2return = req.originalUrl;
-    return res.redirect('/auth/login');
+    return res.redirect('/auth/login?return='+req.originalUrl);
   }
   next();
 }
