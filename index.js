@@ -71,7 +71,7 @@ function extractProfile (profile) {
 passport.use(new GoogleStrategy({
   clientID: process.env.OAUTH2_CLIENT_ID,
   clientSecret: process.env.OAUTH2_CLIENT_SECRET,
-  callbackURL: 'https://quiet-reaches-88393.herokuapp.com/auth/google/callback',
+  callbackURL: 'https://quiet-reaches-88393.herokuapp.com/',
   scope: ['profile', 'email']
 }, (accessToken, refreshToken, profile, cb) => {
   // Extract the minimal profile information we need from the profile object
