@@ -167,7 +167,7 @@ app.get('/api/*', (req,res) => {
 	res.send("This is the generic API page");
 })
 
-app.get('/app', passport.authenticate('google', { scope: ['email', 'profile'] }), (req, res) => {
+app.get('/app', (req, res) => {
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 app.get('/client/css/materialize.min.css', (req, res) => {
