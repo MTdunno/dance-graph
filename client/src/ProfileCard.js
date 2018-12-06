@@ -21,7 +21,7 @@ class ProfileCard extends Component {
 		response => {
 			console.log(response.text());
 			console.log(response.body);
-			console.log(response.json());
+			//console.log(response.json());
 			console.log("TYPE");
 			console.log(response.type);
 			const stream = response.body
