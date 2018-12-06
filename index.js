@@ -173,7 +173,7 @@ app.get('/app', (req, res) => {
 app.get('/client/css/materialize.min.css', (req, res) => {
   res.sendFile(path.join(__dirname+'/client/css/materialize.min.css'));
 });
-app.get('/*', (req,res)={res.redirect('/')})
+app.get('/*', (req,res)=>{res.redirect('/')})
 
 app.listen( port, () => {
 	console.log("Express server listening on port %d in %s mode", process.env.PORT, app.settings.env) 
