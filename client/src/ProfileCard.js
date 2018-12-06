@@ -46,20 +46,6 @@ class ProfileCard extends Component {
 		}
 		,(err) => {console.log(err);console.log("TEST3");}).then(
 			data => {
-				var stream = data;
-				const chunks = [];
-
-				stream.on("data", function (chunk) {
-					console.log(chunk);
-					chunks.push(chunk);
-				});
-				
-				// Send the buffer or you can put it into a var
-				stream.on("end", function () {
-					var x = Buffer.concat(chunks);
-					console.log(x);
-					data = x;
-				});
 				
 				
 				let profile = "PROOFILE";
