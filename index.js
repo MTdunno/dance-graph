@@ -99,7 +99,7 @@ app.get(
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     if (req.query.return) {
       req.session.oauth2return = req.query.return;
-    }else {req.session.oauth2return = 'https://quiet-reaches-88393.herokuapp.com'}
+    }else {req.session.oauth2return = 'https://quiet-reaches-88393.herokuapp.com/profile/google'}
     next();
   },
 
