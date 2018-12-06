@@ -141,14 +141,14 @@ app.get(
 //  next();
 //}
 
-// Middleware that exposes the user's profile as well as login/logout URLs to
-// any templates. These are available as `profile`, `login`, and `logout`.
-function addTemplateVariables (req, res, next) {
-  res.locals.profile = req.user;
-  res.locals.login = `/auth/login?return=${encodeURIComponent(req.originalUrl)}`;
-  res.locals.logout = `/auth/logout?return=${encodeURIComponent(req.originalUrl)}`;
-  next();
-}
+//// Middleware that exposes the user's profile as well as login/logout URLs to
+//// any templates. These are available as `profile`, `login`, and `logout`.
+//function addTemplateVariables (req, res, next) {
+//  res.locals.profile = req.user;
+//  res.locals.login = `/auth/login?return=${encodeURIComponent(req.originalUrl)}`;
+//  res.locals.logout = `/auth/logout?return=${encodeURIComponent(req.originalUrl)}`;
+//  next();
+//}
 
 
 
@@ -168,7 +168,12 @@ app.get('/api/*', (req,res) => {
 })
 
 app.get('/app', (req, res) => {
-  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+	if(req.user){
+		res.sendFile(path.join(__dirname+'/client/build/index.html'));
+	}
+	else{
+		res.redirect('/');
+	}
 });
 app.get('/client/css/materialize.min.css', (req, res) => {
   res.sendFile(path.join(__dirname+'/client/css/materialize.min.css'));
