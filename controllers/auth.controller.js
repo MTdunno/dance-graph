@@ -9,7 +9,7 @@ exports.google = (req, res) => {
   }
   res.json(user);
 	} else {
-		res.json({error: "must be logged in"});
+		res.json({name: "error"});
 	}
 }
 
