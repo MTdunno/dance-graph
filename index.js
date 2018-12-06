@@ -88,7 +88,7 @@ passport.deserializeUser((obj, cb) => {
 
 app.get(
   // Login url
-  '/auth/login',
+  '/',
 
   // Save the url of the user's current page so the app can redirect back to
   // it after authorization
@@ -99,7 +99,7 @@ app.get(
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     if (req.query.return) {
       req.session.oauth2return = req.query.return;
-    }else {req.session.oauth2return = 'https://quiet-reaches-88393.herokuapp.com/profile/google'}
+    }else {req.session.oauth2return = 'https://quiet-reaches-88393.herokuapp.com/app'}
     next();
   },
 
@@ -128,18 +128,18 @@ app.get(
   }
 );
 
-// Middleware that requires the user to be logged in. If the user is not logged
-// in, it will redirect the user to authorize the application and then return
-// them to the original URL they requested.
-function authRequired (req, res, next) {
-	console.log("authREQUIRRED");
-  console.log(req.user);
-  if (!req.user) {
-    req.session.oauth2return = req.originalUrl;
-    return res.redirect('/auth/login');
-  }
-  next();
-}
+//// Middleware that requires the user to be logged in. If the user is not logged
+//// in, it will redirect the user to authorize the application and then return
+//// them to the original URL they requested.
+//function authRequired (req, res, next) {
+//	console.log("authREQUIRRED");
+//  console.log(req.user);
+//  if (!req.user) {
+//    req.session.oauth2return = req.originalUrl;
+//    return res.redirect('/auth/login');
+//  }
+//  next();
+//}
 
 // Middleware that exposes the user's profile as well as login/logout URLs to
 // any templates. These are available as `profile`, `login`, and `logout`.
@@ -167,7 +167,7 @@ app.get('/api/*', (req,res) => {
 	res.send("This is the generic API page");
 })
 
-app.get('/', passport.authenticate('google', { scope: ['email', 'profile'] }), (req, res) => {
+app.get('/app', passport.authenticate('google', { scope: ['email', 'profile'] }), (req, res) => {
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 app.get('/client/css/materialize.min.css', (req, res) => {
